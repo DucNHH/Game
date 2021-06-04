@@ -28,15 +28,15 @@ public class Board {
                         update(i, j);
                         check = true;
                     }
-                    if(checkRow(i, j)) {
+                    else if(checkRow(i, j)) {
                         update(i, j);
                         check = true;
                     }
-                    if(checkCol(i, j)) {
+                    else if(checkCol(i, j)) {
                         update(i, j);
                         check = true;
                     }
-                    if(checkArea(i, j)) {
+                    else if(checkArea(i, j)) {
                         update(i, j);
                         check = true;
                     }
