@@ -26,22 +26,18 @@ public class Board {
                     if(this.stat[i][j].getData() != 0) continue;
                     if(checkBox(i, j)) {
                         update(i, j);
-                        System.out.println("1");
                         check = true;
                     }
                     if(checkRow(i, j)) {
                         update(i, j);
-                        System.out.println("2");
                         check = true;
                     }
                     if(checkCol(i, j)) {
                         update(i, j);
-                        System.out.println("3");
                         check = true;
                     }
                     if(checkArea(i, j)) {
                         update(i, j);
-                        System.out.println("4");
                         check = true;
                     }
                 }
@@ -75,6 +71,7 @@ public class Board {
             for(int i = 1; i <= 9; ++i) {
                 if(!this.stat[x][y].getTick()[i]) {
                     this.stat[x][y].setData(i);
+                    System.out.println(x + " " + y + " " + i);
                     return true;
                 }
             }
@@ -94,6 +91,7 @@ public class Board {
             }
             if(check) {
                 this.stat[x][y].setData(number);
+                System.out.println(x + " " + y + " " + number);
                 return true;
             }
         }
@@ -112,6 +110,7 @@ public class Board {
             }
             if(check) {
                 this.stat[x][y].setData(number);
+                System.out.println(x + " " + y + " " + number);
                 return true;
             }
         }
@@ -134,6 +133,7 @@ public class Board {
             }
             if(check) {
                 this.stat[x][y].setData(number);
+                System.out.println(x + " " + y + " " + number);
                 return true;
             }
         }
