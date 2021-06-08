@@ -22,7 +22,7 @@ public class Controller {
     Board board;
     Stack<Board> backup;
     
-    public void start(ActionEvent event) {
+    public void start() {
         board = new Board();
         backup = new Stack<>();
         buttons = new Button[][]{{b_0_0, b_0_1, b_0_2, b_0_3, b_0_4, b_0_5}, {b_1_0, b_1_1, b_1_2, b_1_3, b_1_4, b_1_5}};
@@ -69,8 +69,7 @@ public class Controller {
         alert.show();
     }
     
-    public void show() {
-        int result = board.update();
+    public void show(int result) {
         for(int i = 0; i < 5; ++i) {
             buttons[0][i].setDisable(!board.player);
             buttons[1][i].setDisable(board.player);
@@ -86,28 +85,37 @@ public class Controller {
         }
     }
     
-    public void moveLeft(ActionEvent event){
+    public void moveLeft(){
         Board tmp = board.clone();
         backup.push(tmp);
-        board.moveLeft();
+        int result = board.moveLeft();
         bLeft.setDisable(true);
         bRight.setDisable(true);
         buttons[board.x][board.y].setBackground(normal);
-        show();   
+        if(board.mode) result = board.botPlay();
+        show(result);   
     }
     
-    public void moveRight(ActionEvent event) {
+    public void moveRight() {
         Board tmp = board.clone();
         backup.push(tmp);
-        board.moveRight();
+        int result = board.moveRight();
         bLeft.setDisable(true);
         bRight.setDisable(true);
         buttons[board.x][board.y].setBackground(normal);
-        show();
+        if(board.mode) result = board.botPlay();
+        show(result);
     }
     
-    public void turn(ActionEvent event) {
+    public void turn() {
         if(!backup.isEmpty()) board = backup.pop();
         setBoard();
+    }
+    
+    public void changeMode(ActionEvent event) {
+        board.mode = !board.mode;
+        Button change = (Button) event.getSource();
+        if(board.mode) change.setText("ONE PLAYER");
+        else change.setText("TWO PLAYER");
     }
 }

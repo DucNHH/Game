@@ -12,7 +12,7 @@
    <children>
       <HBox alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="85.0" text="START">
+            <Button mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="95.0" text="START">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -23,7 +23,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="85.0" text="RESTART">
+            <Button mnemonicParsing="false" onAction="#turn" prefHeight="25.0" prefWidth="95.0" text="TURN BACK">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#turn" prefHeight="25.0" prefWidth="85.0" text="TURN BACK">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changeMode" prefHeight="25.0" prefWidth="95.0" text="ONE PLAYER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

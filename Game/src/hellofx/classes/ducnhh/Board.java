@@ -4,13 +4,14 @@ public class Board{
     int[][] bText;
     int[] count;
     int x, y;
-    boolean player;
+    boolean player, mode;
     int eatScore1, eatScore2;
 
     public Board() {
         this.bText = new int[2][6];
         this.count = new int[2];
         this.player = true;
+        this.mode = true;
         this.eatScore1 = 0;
         this.eatScore2 = 0;
         for(int i = 0; i < 5; ++i) {
@@ -29,6 +30,7 @@ public class Board{
         }
         tmp.count = this.count.clone();
         tmp.player = this.player;
+        tmp.mode = this.mode;
         tmp.eatScore1 = this.eatScore1;
         tmp.eatScore2 = this.eatScore2;
         tmp.x = this.x;
@@ -36,30 +38,35 @@ public class Board{
         return tmp;
     }
     
-    public void botPlay() {
-        this.player = !this.player;
+    public int botPlay() {
         int max = this.eatScore2;
         boolean move = true;
         int tmpY = -1;
         for(int i = 0; i < 5; ++i) {
-            if(this.bText[1][i] == 0) continue;
+            if(this.bText[1-this.x][i] == 0) continue;
             if(tmpY < 0) tmpY = i;
             Board tmp = this.clone();
-            tmp.moveLeft();
+            tmp.x = 1 - this.x;
+            tmp.y = i;
+            tmp.move1();
             if(tmp.eatScore2 > max) {
                 max = tmp.eatScore2;
                 move = true;
                 tmpY = i;
             }
             tmp = this.clone();
-            tmp.moveRight();
+            tmp.x = 1 - this.x;
+            tmp.y = i;
+            tmp.move2();
             if(tmp.eatScore2 > max) {
                 max = tmp.eatScore2;
                 move = false;
                 tmpY = i;
             }
         }
-        
+        this.x = 1 - this.x;
+        this.y = tmpY;
+        return this.move(move);
     }
     
     public void move1() {
@@ -190,13 +197,21 @@ public class Board{
         return -1;
     }
     
-    public void moveLeft() {
+    public int moveLeft() {
         if(this.player) this.move1();
         else this.move2();
+        return this.update();
     }
     
-    public void moveRight() {
+    public int moveRight() {
         if(!this.player) this.move1();
         else this.move2();
+        return this.update();
+    }
+    
+    public int move(boolean move) {
+        if(move) this.move1();
+        else this.move2();
+        return this.update();
     }
 }
