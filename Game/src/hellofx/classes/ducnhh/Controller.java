@@ -92,7 +92,7 @@ public class Controller {
         bLeft.setDisable(true);
         bRight.setDisable(true);
         buttons[board.x][board.y].setBackground(normal);
-        if(board.mode) result = board.botPlay();
+        if(board.mode && result < 0) result = board.botPlay();
         show(result);   
     }
     
@@ -103,7 +103,7 @@ public class Controller {
         bLeft.setDisable(true);
         bRight.setDisable(true);
         buttons[board.x][board.y].setBackground(normal);
-        if(board.mode) result = board.botPlay();
+        if(board.mode && result < 0) result = board.botPlay();
         show(result);
     }
     
