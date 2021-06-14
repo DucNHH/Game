@@ -66,6 +66,7 @@ public class Board{
         }
         this.x = 1 - this.x;
         this.y = tmpY;
+        System.out.println(this.x + " " + this.y + " " + move);
         return this.move(move);
     }
     

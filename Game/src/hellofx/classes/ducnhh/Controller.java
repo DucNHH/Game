@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 public class Controller {
     @FXML Button b_0_0, b_0_1, b_0_2, b_0_3, b_0_4, b_0_5, b_1_0, b_1_1, b_1_2, b_1_3, b_1_4, b_1_5;
     @FXML private Text player1, player2;
-    @FXML private Button bLeft, bRight;
+    @FXML private Button bLeft, bRight, change;
     Background pick = new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY));
     Background normal = new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY));
     Button[][] buttons;
@@ -40,6 +40,7 @@ public class Controller {
             buttons[0][i].setDisable(!board.player);
             buttons[1][i].setDisable(board.player);
         }
+        change.setText("ONE PLAYER");
         player1.setText(board.eatScore1 + "");
         player2.setText(board.eatScore2 + "");
     }
@@ -112,9 +113,8 @@ public class Controller {
         setBoard();
     }
     
-    public void changeMode(ActionEvent event) {
+    public void changeMode() {
         board.mode = !board.mode;
-        Button change = (Button) event.getSource();
         if(board.mode) change.setText("ONE PLAYER");
         else change.setText("TWO PLAYER");
     }

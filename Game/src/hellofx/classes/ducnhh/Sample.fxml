@@ -31,7 +31,7 @@
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changeMode" prefHeight="25.0" prefWidth="95.0" text="ONE PLAYER">
+            <Button fx:id="change" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changeMode" prefHeight="25.0" prefWidth="95.0" text="ONE PLAYER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
