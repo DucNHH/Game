@@ -62,7 +62,7 @@ public class Controller {
     }
     
     public void gameOver(int result) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if(result > 0) {
             alert.setContentText("PLAYER " + result + " WIN");
         }
